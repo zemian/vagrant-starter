@@ -16,14 +16,18 @@ vagrant init ubuntu/bionic64
 vagrant up
 vagrant ssh
 
+If config `Vagrantfile` is updated you can reload like this
+vagrant reload
+
+# To stop the vm, run this
+vagrant halt
+
 # Ensure all packages are up-to-date
 $ sudo apt update
 
 # To switch to root user
 $ sudo su -
 ----
-
-To stop the vm, run `vagrant halt`
 
 === Installing Developement Tools
 
