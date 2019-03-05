@@ -29,7 +29,7 @@ $ sudo apt update
 $ sudo su -
 ----
 
-=== Installing Developement Tools
+=== Installing Softare
 
 ----
 # System tools
@@ -82,6 +82,11 @@ sudo apt install -y mysql-server
 
 	# To restart the db
 	sudo systemctl restart mysql
+	sudo systemctl status mysql
+
+	# To disable auto start of the service
+	sudo systemctl stop mysql
+	sudo systemctl disable mysql
 
 
 # Database - Postgres
@@ -101,8 +106,25 @@ sudo apt install -y postgresql postgresql-contrib
 
 	# To restart the db
 	sudo systemctl restart postgresql
+	sudo systemctl status postgresql
+
+
+# Web server: nginx
+sudo apt install -y nginx
+sudo systemctl status nginx
+
+
+# Setup C compiler
+sudo apt install -y build-essential
 
 ----
 
 == How to expose VM (Guest) port to host (Windows)
 
+Enable port_forward in Vagrantfile.
+
+
+== References
+
+* https://www.vagrantup.com/docs/index.html
+* https://www.digitalocean.com/
