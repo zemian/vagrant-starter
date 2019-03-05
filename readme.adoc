@@ -31,6 +31,7 @@ To stop the vm, run `vagrant halt`
 # System tools
 sudo apt install -y zip unzip
 
+
 # JDK
 sudo apt install -y default-jdk
 sudo apt install -y openjdk-8-jdk
@@ -38,11 +39,19 @@ sudo apt install -y openjdk-8-jdk
 	# To switch to different jdk
 	sudo update-alternatives --config java
 
-# Java tools
-mkdir ~/apps
-cd ~/apps
-wget https://services.gradle.org/distributions/gradle-5.0-bin.zip
-unzip gradle-5.0-bin.zip
+	NOTE Ubuntu named `/usr/lib/jvm/java-11-openjdk-amd64` but it
+	actually is a JDK version 10!
+
+
+# Java/Spring Dev Setup
+wget https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.1.3.RELEASE/spring-boot-cli-2.1.3.RELEASE-bin.zip
+unzip spring-boot-cli-2.1.3.RELEASE-bin.zip
+
+	# Setup a Java Project For Dev
+	spring-2.1.3.RELEASE/bin/spring init -d=web --build=gradle ~/src/zemian/hello-web
+	cd ~/src/zemian/hello-web
+	./gradlew bootRun
+
 
 # Database - MySQL
 sudo apt install -y mysql-server
@@ -69,7 +78,7 @@ sudo apt install -y mysql-server
 
 	# To restart the db
 	sudo systemctl restart mysql
-----
+
 
 # Database - Postgres
 sudo apt install -y postgresql postgresql-contrib
@@ -88,3 +97,8 @@ sudo apt install -y postgresql postgresql-contrib
 
 	# To restart the db
 	sudo systemctl restart postgresql
+
+----
+
+== How to expose VM (Guest) port to host (Windows)
+
