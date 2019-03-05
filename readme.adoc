@@ -10,9 +10,11 @@ NOTE: These installs requires admin elevated rights.
 2. Install Vagrant
 3. Setup Ubuntu VM
 ----
-mkdir ~/vm/ubuntu-bionic64-18.04
-cd ~/vm/ubuntu-bionic64-18.04
+mkdir -p ~/vm/ubuntu/bionic64
+cd ~/vm/ubuntu/bionic64
 vagrant init ubuntu/bionic64
 vagrant up
 vagrant ssh
 ----
+
+To stop the vm, run `vagrant halt`
