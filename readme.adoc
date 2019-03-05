@@ -12,7 +12,7 @@ https://app.vagrantup.com/ubuntu/
 
 https://app.vagrantup.com/centos
 	
-	centos/7 CentOS Linux 7 x86_64 Vagrant Box
+	centos/7 - 387 MB CentOS Linux 7 x86_64 Vagrant Box
 
 https://app.vagrantup.com/zemiandeng
 
@@ -28,8 +28,8 @@ NOTE: These installs requires admin elevated rights.
 2. Install Vagrant
 3. Setup Ubuntu VM
 ----
-mkdir -p ~/vm/ubuntu/bionic64
-cd ~/vm/ubuntu/bionic64
+mkdir -p vagrant-starter/vm/ubuntu/bionic64
+cd vagrant-starter/vm/ubuntu/bionic64
 vagrant init ubuntu/bionic64
 vagrant up
 vagrant ssh
@@ -149,7 +149,6 @@ Enable port_forward in Vagrantfile.
 == How to export Vagrant box and reuse it
 
 ----
-cd ~/vm/ubuntu/bionic64
-vagrant package --output=ubuntu-18.04 --vagrantfile=Vagrantfile
-
+cd vagrant-starter/vm/ubuntu/bionic64
+vagrant package
 ----
