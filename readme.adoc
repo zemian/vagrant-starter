@@ -15,6 +15,76 @@ cd ~/vm/ubuntu/bionic64
 vagrant init ubuntu/bionic64
 vagrant up
 vagrant ssh
+
+# Ensure all packages are up-to-date
+$ sudo apt update
+
+# To switch to root user
+$ sudo su -
 ----
 
 To stop the vm, run `vagrant halt`
+
+=== Installing Developement Tools
+
+----
+# System tools
+sudo apt install -y zip unzip
+
+# JDK
+sudo apt install -y default-jdk
+sudo apt install -y openjdk-8-jdk
+
+	# To switch to different jdk
+	sudo update-alternatives --config java
+
+# Java tools
+mkdir ~/apps
+cd ~/apps
+wget https://services.gradle.org/distributions/gradle-5.0-bin.zip
+unzip gradle-5.0-bin.zip
+
+# Database - MySQL
+sudo apt install -y mysql-server
+
+	# Verify
+	sudo mysqladmin -p -u root version
+
+	# Access client
+	sudo mysql
+
+	# To change root user password
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root123';
+	FLUSH PRIVILEGES;
+	SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+	# To create new db user and database
+	# By using GRANT, no need to flush privileges
+	CREATE DATABASE zemiandb;
+	CREATE USER 'zemiandb'@'localhost' IDENTIFIED BY 'zemiandb123';
+	GRANT ALL PRIVILEGES ON zemiandb.* TO 'zemiandb'@'localhost' WITH GRANT OPTION;
+
+	# To connect to zemiandb
+	sudo mysql -u zemiandb -p zemiandb
+
+	# To restart the db
+	sudo systemctl restart mysql
+----
+
+# Database - Postgres
+sudo apt install -y postgresql postgresql-contrib
+
+	# To access the client
+	# Or run psql without switch user
+	sudo -u postgres psql
+
+	# To add new DB and unix user
+	sudo adduser zemiandb
+	sudo -u postgres createuser -s zemiandb
+	sudo -u zemiandb createdb zemiandb
+
+	# To connect to zemiandb
+	sudo -u zemiandb psql
+
+	# To restart the db
+	sudo systemctl restart postgresql
