@@ -1,0 +1,18 @@
+Vagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the "works on my machine" excuse a relic of the past.
+
+https://www.vagrantup.com/
+
+== Getting Started on Windows 10
+
+NOTE: These installs requires admin elevated rights.
+
+1. Download and install VirtualBox
+2. Install Vagrant
+3. Setup Ubuntu VM
+----
+mkdir ~/vm/ubuntu-bionic64-18.04
+cd ~/vm/ubuntu-bionic64-18.04
+vagrant init ubuntu/bionic64
+vagrant up
+vagrant ssh
+----
