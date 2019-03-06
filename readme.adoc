@@ -9,6 +9,7 @@ https://app.vagrantup.com/ubuntu/
 
 	ubuntu/bionic64 - 319MB Official Ubuntu 18.04 LTS (Bionic Beaver)
 	ubuntu/trusty64 - 427MB Official Ubuntu Server 14.04 LTS (Trusty Tahr)
+		* After `apt update` the size will go up by 100MB
 
 https://app.vagrantup.com/centos
 	
@@ -17,7 +18,7 @@ https://app.vagrantup.com/centos
 https://app.vagrantup.com/zemiandeng
 
 	zemiandeng/ubuntu-18.04 - 1.4GB based on "ubuntu/bionic64"
-		This includes developer tools mentioned here in Getting Started section.
+		* This includes developer tools mentioned here in Getting Started section.
 
 
 == Getting Started on Windows 10
